@@ -74,6 +74,10 @@ function ToDo() {
 
     return (
         <>
+            <div className={'container d-flex justify-content-center'}>
+                <div className={'card align-self-center'}>
+
+
             <div>
                 <h1>
                     Welcome ToDo
@@ -81,32 +85,45 @@ function ToDo() {
                 <form onSubmit={handleSubmit}>
                     <h3>Here is your list
                     </h3>
-                    {blankList? (
-                            <li></li>
-                        ) :(
-                        list.map((item, index) => (
-                        <li key={index}
-                            className={`${strike[index]? 'text-danger' : '' }`}
-                            onClick={() => strikeThrough(index)}
-                        >{item}</li>
-                        )))}
-                    <div className="d-flex  input-group justify-content-around">
-                            <input
-                                type="text"
-                                value={inputText}
-                                onChange={handleChange}
-                                className="form-control"
-                                placeholder="Enter text"
-                            />
-                            <button
-                                type="submit" className="btn btn-primary">
-                                Add
-                            </button>
-                    </div>
+                    <ul>
+                        {list.map((item, index) => (
+                                <li key={index}
+                                    className={`item align-content-lg-start  ${strike[index] ? 'text-decoration-line-through' : ''}`}
+                                    onClick={() => strikeThrough(index)}
+                                >{item}</li>
+                            ))}
+                        <li>
+                            <div className="d-flex justify-content-around">
+                                <div className="inputContainer">
+                                    <input required=""
+                                           className="customInput"
+                                           type="text"
+                                           placeholder={'Enter Text'}
+                                           value={inputText}
+                                           onChange={handleChange}/>
+                                    {/*<label className="inputLabel">Your Name</label>*/}
+                                </div>
+                                {/*<input*/}
+                                {/*    type="text"*/}
+                                {/*    value={inputText}*/}
+                                {/*    onChange={handleChange}*/}
+                                {/*    className="form-control"*/}
+                                {/*    placeholder="Enter text"*/}
+                                {/*/>*/}
+                                <button
+                                    type="submit" className="btn btn-primary">
+                                    Add
+                                </button>
+                            </div>
+                        </li>
+                    </ul>
+
                 </form>
             </div>
+                </div>
+            </div>
         </>
-)
+    )
 }
 
 export default ToDo;

@@ -1,7 +1,7 @@
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  /*padding: 2rem;*/
   text-align: center;
 }
 
@@ -35,8 +35,63 @@
 
 .card {
   padding: 2em;
+  max-height: fit-content;
 }
 
 .read-the-docs {
   color: #888;
+}
+.item{
+  text-align: left; !important;
+  padding-bottom: 20px;
+}
+
+.item:hover{
+  cursor: pointer;
+}
+
+
+/* From Uiverse.io by Juanes200122 */
+.container {
+  min-width: 100vw;
+  min-height: 100vh;
+  /* Add your background pattern here */
+  background-color: #ffffff;
+  background-image: radial-gradient(rgba(12, 12, 12, 0.171) 2px, transparent 0);
+  background-size: 30px 30px;
+  background-position: -0px -0px;
+}
+
+
+/* From Uiverse.io by doniaskima */
+.inputContainer {
+  position: relative;
+}
+
+.customInput {
+  height:100%;
+  width: 100%;
+  font-size: 16px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid #000000;
+  outline: none;
+  transition: border-color 0.3s ease;
+  color: #000000;
+}
+
+.customInput:focus,
+.customInput:not(:placeholder-shown) {
+  border-color: #000000;
+}
+
+
+.customInput:focus + .inputLabel,
+.customInput:not(:placeholder-shown) + .inputLabel {
+  transform: translateY(-100%) translateX(-5px) scale(0.8);
+}
+
+
+.btn {
+  margin-left: 20px;
 }
