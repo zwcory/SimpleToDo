@@ -51,7 +51,8 @@ function ToDo() {
     };
 
     const resetItems = () => {
-        
+        //TODO
+        //  Rest list
     }
     const handleChange = (e) => {
         setInputText(e.target.value);
@@ -127,23 +128,40 @@ function ToDo() {
                                 {/*    placeholder="Enter text"*/}
                                 {/*/>*/}
                                 <button
-                                    type="submit" className="btn btn-primary">
-                                    Add
+                                    type="submit" className="btn btn-success">
+                                    {/*type="submit" className="myBtn greenBtn">*/}
+                                    {/*<img*/}
+                                    {/*    src={'/plus-svgrepo-com.svg'}*/}
+                                    {/*    className={'myBtnImage'}*/}
+                                    {/*    alt={'Add Item'}/>*/}
+                                    ADD
                                 </button>
                             </div>
                         </li>
                     </ul>
-                    <div>
-                        <button className={'btn btn-danger my-2'}
-                                onClick={resetItems}
-                                >
-                            Resest
+                    <div className={'d-flex justify-content-around'}>
+                        <button className='btn btn-danger'
+                                onClick={clearCrossedOutItems}
+                        >
+                            CLEAR
+                        {/*<button className={'myBtn redBtn'}*/}
+                        {/*        onClick={clearCrossedOutItems}*/}
+                        {/*>*/}
+                            {/*<img*/}
+                            {/*    src={'/broom-svgrepo-com.svg'}*/}
+                            {/*    className={'myBtnImage'}*/}
+                            {/*    alt={'Clear Crossed Items'}/>*/}
                         </button>
                         <button
-                            className="btn btn-danger my-2"
-                            onClick={clearCrossedOutItems}
-                        >
-                            Clear Crossed-Out Items
+                            className={'btn btn-danger'}
+                            onClick={resetItems}>
+                            RESET
+                            {/*className={'myBtn redBtn'}*/}
+                            {/*onClick={resetItems}>*/}
+                        {/*> <img*/}
+                        {/*    src={'/bin-svgrepo-com.svg'}*/}
+                        {/*    className={'myBtnImage'}*/}
+                        {/*    alt={'Clear Crossed Items'}/>*/}
                         </button>
                     </div>
                 </form>

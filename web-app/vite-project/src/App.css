@@ -43,9 +43,8 @@
 }
 .item{
   text-align: left; !important;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
 }
-
 .item:hover{
   cursor: pointer;
 }
@@ -71,7 +70,7 @@
 .customInput {
   height:100%;
   width: 100%;
-  font-size: 16px;
+  /*font-size: 16px;*/
   background-color: transparent;
   border: none;
   border-bottom: 2px solid #000000;
@@ -92,10 +91,6 @@
 }
 
 
-.btn {
-  margin-left: 20px;
-}
-
 .myCard{
   background-color: #fff;
   border-width: 0px;
@@ -103,5 +98,43 @@
   padding: 2em;
   max-height: fit-content;
   margin: 2em;
-
 }
+
+
+.greenBtn{
+  background-color:green;
+}
+
+
+.redBtn{
+  background-color:red;
+}
+
+/*.myBtn{*/
+/*  border-radius: 0.75em;*/
+/*  border-width:2px;*/
+/*  margin:0px;*/
+/*  padding: .375rem;*/
+/*}*/
+/*.myBtnImage {*/
+/*  min-height: 1.5rem;*/
+/*  min-width: 1.5rem;*/
+/*  max-height: 1.5rem;*/
+/*  max-width: 1.5rem;*/
+/*}*/
+
+/*.myBtn {*/
+/*  width: 40px;*/
+/*  height: 40px;*/
+/*  padding: 5px;*/
+/*  border: none;*/
+/*  border-radius: 8px;*/
+/*  display: flex;*/
+/*  align-items: center;*/
+/*  justify-content: center;*/
+/*}*/
+
+/*.myBtnImage {*/
+/*  width: 16px; !* Smaller SVG size *!*/
+/*  height: 16px;*/
+/*}*/
