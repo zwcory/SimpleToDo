@@ -56,8 +56,8 @@
   min-width: 100vw;
   min-height: 100vh;
   /* Add your background pattern here */
-  background-color: #ffffff;
-  background-image: radial-gradient(rgba(12, 12, 12, 0.171) 2px, transparent 0);
+  background-color: rgb(232, 232, 232);
+  background-image: radial-gradient(rgba(12, 12, 12, 0.05) 2px, transparent 0);
   background-size: 30px 30px;
   background-position: -0px -0px;
 }
@@ -94,4 +94,14 @@
 
 .btn {
   margin-left: 20px;
+}
+
+.myCard{
+  background-color: #fff;
+  border-width: 0px;
+  border-radius: 0.75em;
+  padding: 2em;
+  max-height: fit-content;
+  margin: 2em;
+
 }

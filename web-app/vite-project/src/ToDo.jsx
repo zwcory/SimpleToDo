@@ -38,7 +38,21 @@ function ToDo() {
         });
     };
 
+    const clearCrossedOutItems = () => {
+        const filteredList = list.filter((_, index) => !strike[index]); // Keep only non-crossed items
+        const filteredStrike = strike.filter((item) => !item); // Remove crossed-out states
 
+        setList(filteredList); // Update the list
+        setStrike(filteredStrike); // Update the strike states
+
+        // Update local storage
+        localStorage.setItem('List', JSON.stringify(filteredList));
+        localStorage.setItem('Strike', JSON.stringify(filteredStrike));
+    };
+
+    const resetItems = () => {
+        
+    }
     const handleChange = (e) => {
         setInputText(e.target.value);
     };
@@ -75,7 +89,7 @@ function ToDo() {
     return (
         <>
             <div className={'container d-flex justify-content-center'}>
-                <div className={'card align-self-center'}>
+                <div className={'myCard align-self-center'}>
 
 
             <div>
@@ -87,12 +101,14 @@ function ToDo() {
                     </h3>
                     <ul>
                         {list.map((item, index) => (
-                                <li key={index}
-                                    className={`item align-content-lg-start  ${strike[index] ? 'text-decoration-line-through' : ''}`}
-                                    onClick={() => strikeThrough(index)}
-                                >{item}</li>
-                            ))}
+                            <li key={index}
+                                className={`item align-content-lg-start  ${strike[index] ? 'text-decoration-line-through' : ''}`}
+                                onClick={() => strikeThrough(index)}
+                            >{item}</li>
+                        ))}
+
                         <li>
+
                             <div className="d-flex justify-content-around">
                                 <div className="inputContainer">
                                     <input required=""
@@ -117,7 +133,19 @@ function ToDo() {
                             </div>
                         </li>
                     </ul>
-
+                    <div>
+                        <button className={'btn btn-danger my-2'}
+                                onClick={resetItems}
+                                >
+                            Resest
+                        </button>
+                        <button
+                            className="btn btn-danger my-2"
+                            onClick={clearCrossedOutItems}
+                        >
+                            Clear Crossed-Out Items
+                        </button>
+                    </div>
                 </form>
             </div>
                 </div>
