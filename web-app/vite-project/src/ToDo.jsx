@@ -4,13 +4,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 function ToDo() {
     const [list,setList] = useState(
-        // ['Apple', 'Banana' , 'Mango']
         []
     );
     const [blankList,setBlankList] = useState(Boolean);
     const [inputText, setInputText] = useState(''); // State for input text
-    let [strike, setStrike] = useState([]);
-
+    const [strike, setStrike] = useState([]);
+    const [showModal, setShowModal] = useState(false);
 
     useEffect(() => {
         getList().then();
@@ -53,7 +52,18 @@ function ToDo() {
     const resetItems = () => {
         //TODO
         //  Rest list
+        setShowModal(false);
+        const blankList = []; // Initialize blank list
+        const blankStrike =[]; // Initialize blank list
+
+        setList(blankList); // Update the list
+        setStrike(blankStrike); // Update the strike states
+
+        // Update local storage
+        localStorage.setItem('List', JSON.stringify(blankList));
+        localStorage.setItem('Strike', JSON.stringify(blankStrike));
     }
+
     const handleChange = (e) => {
         setInputText(e.target.value);
     };
@@ -89,17 +99,17 @@ function ToDo() {
 
     return (
         <>
-            <div className={'container d-flex justify-content-center'}>
-                <div className={'myCard align-self-center'}>
-
-
+            <div className={'container'}>
+            <h1 id={'title'}>
+                Simple ToDo
+            </h1>
+                <div className={'d-flex justify-content-center'}>
+                <div className={'myCard d-flex align-self-center flex-column' }>
             <div>
-                <h1>
-                    Welcome ToDo
-                </h1>
+               <h3 id={'header'}>Here is your list</h3>
+            </div>
+            <div>
                 <form onSubmit={handleSubmit}>
-                    <h3>Here is your list
-                    </h3>
                     <ul>
                         {list.map((item, index) => (
                             <li key={index}
@@ -128,23 +138,49 @@ function ToDo() {
                             </div>
                         </li>
                     </ul>
-                    <div className={'d-flex justify-content-around'}>
-                        <button
-                            className={'myBtn redBtn'}
-                                onClick={clearCrossedOutItems}
-                        >
-                            CLEAR
-                        </button>
-                        <button
-                            className={'myBtn redBtn'}
-                            onClick={resetItems}>
-                            RESET
-                        </button>
-                    </div>
                 </form>
             </div>
+            <div className={`mt-auto`}>
+                <div className={'d-flex justify-content-around'}>
+                    <button
+                        className={'myBtn redBtn'}
+                            onClick={clearCrossedOutItems}
+                    >
+                        CLEAR
+                    </button>
+                    <button
+                        className={'myBtn redBtn'}
+                        onClick={() => setShowModal(true)}>
+                        RESET
+                    </button>
                 </div>
             </div>
+        </div>
+        </div>
+        </div>
+            {showModal && (
+                <div className="modal show" style={{display: 'block', paddingTop:'3em' ,backgroundColor: 'rgba(0,0,0,0.5)'}}>
+                    <div className="modal-dialog">
+                        <div className={`modal-content`} style={{backgroundColor:'#fafafa'}}>
+                            <div className="modal-header">
+                                <h5 className="modal-title">Confirm Reset?</h5>
+                                <button type="button" className="btn-close"  onClick={() => setShowModal(false)}></button>
+                            </div>
+                            <div className="modal-body" >
+                                <p style={{paddingTop:'1rem'}}>Are you sure you want to reset your list?</p>
+                            </div>
+                            <div className="modal-footer">
+                                <button className="myBtn greyBtn" onClick={() => setShowModal(false)}>
+                                    Cancel
+                                </button>
+                                <button className="myBtn redBtn" onClick={resetItems}>
+                                    Confirm
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
         </>
     )
 }

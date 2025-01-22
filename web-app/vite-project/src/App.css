@@ -3,6 +3,7 @@
   margin: 0 auto;
   /*padding: 2rem;*/
   text-align: center;
+  color: rgba(0, 0, 0, 0.85);
 }
 
 .logo {
@@ -33,10 +34,10 @@
   }
 }
 
-.card {
-  padding: 2em;
-  max-height: fit-content;
-}
+/*.card {*/
+/*  padding: 2em;*/
+/*  max-height: fit-content;*/
+/*}*/
 
 .read-the-docs {
   color: #888;
@@ -72,61 +73,43 @@
   width: 60%;
   background-color: transparent;
   border: none;
-  box-shadow: inset 0 -2px 0 0 rgba(0, 0, 0, 0.75);
+  box-shadow: inset 0 -1.5px 0 0 rgba(0, 0, 0, 0.65);
   outline: none;
   transition: border-color 0.3s ease;
-  color: #000000;
-}
-
-.customInput:focus,
-.customInput:not(:placeholder-shown) {
-  border-color: #000000;
-}
-
-
-.customInput:focus + .inputLabel,
-.customInput:not(:placeholder-shown) + .inputLabel {
-  transform: translateY(-100%) translateX(-5px) scale(0.8);
 }
 
 
 .myCard{
-  background-color: #fff;
+  background-color: #fafafa;
+  min-height: 70vh;
   border-width: 0px;
   border-radius: 0.75em;
   padding: 2em;
   max-height: fit-content;
   margin: 2em;
-}
-
-
-.greenBtn{
-  background-color:green;
-}
-
-
-.redBtn{
-  background-color:red;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .myBtn{
   border-radius: 8px;
   padding-block: inherit;
-
+  background-color: #fafafa;
 }
 
 .redBtn{
   border-width: 0px;
-  background-color: #fff;
   color: red;
 }
 
 .greenBtn {
   border-width: 0px;
-  background-color: #fff;
   color: green;
 }
 
+.greyBtn{
+  border-width: 0px;
+  color: rgb(101, 120, 140);
+}
 #add{
   margin-left: 2px;
 }
@@ -137,4 +120,25 @@
 
 .redBtn:hover{
   box-shadow: 0px 0px 3px 1px rgba(255, 0, 0, 0.8);
+}
+
+
+.greyBtn:hover{
+  box-shadow: 0px 0px 3px 1px rgba(101, 120, 140, 0.65);
+}
+
+
+#header{
+  text-align: left;
+}
+
+#title{
+  text-align: left;
+  padding-top: 1rem;
+  padding-left: 1rem;
+  color: #d6d6d6;
+}
+
+.modal-content{
+  background-color: #fafafa;
 }
