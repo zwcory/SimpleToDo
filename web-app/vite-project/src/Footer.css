@@ -1,0 +1,21 @@
+
+.footerContainer{
+    background-color: rgb(170 170 170);
+    color: #e8e8e8;
+    max-height: 30%;
+    max-width: 100%; !important;/* Ensure it doesn't exceed the viewport */
+
+
+}
+
+.iconLink {
+    text-decoration: none;
+    color: inherit; /* or a specific color, e.g. #e8e8e8 if using a dark footer */
+    transition: opacity 0.2s ease-in-out;
+}
+
+.iconLink:hover {
+    opacity: 0.3; !important;
+    color: #e8e8e8;
+}
+
