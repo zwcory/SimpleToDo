@@ -1,7 +1,9 @@
 import {useEffect, useState} from 'react'
+import './Footer.css'
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import Footer from "./Footer.jsx";
 function ToDo() {
     const [list,setList] = useState(
         []
@@ -50,8 +52,6 @@ function ToDo() {
     };
 
     const resetItems = () => {
-        //TODO
-        //  Rest list
         setShowModal(false);
         const blankList = []; // Initialize blank list
         const blankStrike =[]; // Initialize blank list
@@ -158,7 +158,7 @@ function ToDo() {
         </div>
         </div>
         </div>
-            {showModal && (
+            {showModal && !blankList && (
                 <div className="modal show" style={{display: 'block', paddingTop:'3em' ,backgroundColor: 'rgba(0,0,0,0.5)'}}>
                     <div className="modal-dialog">
                         <div className={`modal-content`} style={{backgroundColor:'#fafafa'}}>
@@ -181,6 +181,7 @@ function ToDo() {
                     </div>
                 </div>
             )}
+            <Footer/>
         </>
     )
 }

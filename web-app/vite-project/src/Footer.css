@@ -1,0 +1,31 @@
+
+.footerContainer{
+    background-color: rgb(170 170 170);
+    color: #e8e8e8;
+    max-height: 30%;
+    max-width: 100%; !important;/* Ensure it doesn't exceed the viewport */
+
+
+}
+
+
+/*@media (min-width: 576px) {*/
+/*    .footerContainer {*/
+/*        max-width: 540px;*/
+/*    }*/
+/*}*/
+/*@media (min-width: 768px) {*/
+/*    .footerContainer{*/
+/*        max-width: 720px;*/
+/*    }*/
+/*}*/
+/*@media (min-width: 992px) {*/
+/*    .footerContainer {*/
+/*        max-width: 960px;*/
+/*    }*/
+/*}*/
+/*@media (min-width: 1200px) {*/
+/*    .footerContainer {*/
+/*        max-width: 1140px;*/
+/*    }*/
+/*}*/
