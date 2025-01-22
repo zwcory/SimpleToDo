@@ -5,7 +5,7 @@ I am building this a simple, user friendly todo list, with the following feature
     - Cookie Free \
     - No login required \
     - Ad Free \
-    - Stored Memory \
+    - Stored Memory 
 
 ## Growth
 In the future I will be looking to implement more features, including: \
@@ -13,9 +13,9 @@ In the future I will be looking to implement more features, including: \
     - Re ordering of the list \
     - Notes section \
     - Dark Mode \
-    - + Any suggestions \
+    - + Any suggestions 
 
 ## Open Source
-Feel free to use the exisiting code base as much as you would like, completely free \
+Feel free to use the exisiting code base as much as you would like, completely free 
 
 
