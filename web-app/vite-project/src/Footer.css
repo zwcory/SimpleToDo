@@ -8,24 +8,14 @@
 
 }
 
+.iconLink {
+    text-decoration: none;
+    color: inherit; /* or a specific color, e.g. #e8e8e8 if using a dark footer */
+    transition: opacity 0.2s ease-in-out;
+}
 
-/*@media (min-width: 576px) {*/
-/*    .footerContainer {*/
-/*        max-width: 540px;*/
-/*    }*/
-/*}*/
-/*@media (min-width: 768px) {*/
-/*    .footerContainer{*/
-/*        max-width: 720px;*/
-/*    }*/
-/*}*/
-/*@media (min-width: 992px) {*/
-/*    .footerContainer {*/
-/*        max-width: 960px;*/
-/*    }*/
-/*}*/
-/*@media (min-width: 1200px) {*/
-/*    .footerContainer {*/
-/*        max-width: 1140px;*/
-/*    }*/
-/*}*/
+.iconLink:hover {
+    opacity: 0.3; !important;
+    color: #e8e8e8;
+}
+

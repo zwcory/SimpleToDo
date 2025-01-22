@@ -1,62 +1,71 @@
-import './Footer.css'
-import './App.css'
+import { FaLinkedin, FaTwitter, FaGithub } from 'react-icons/fa';
+import './Footer.css';
+import './App.css';
 
 function Footer() {
-
     return (
         <>
-            <div className={"d-flex footerContainer justify-content-around"}>
-                {/*Socials*/}
-                <div className={'d-flex flex-column pt-3 pb-3'}>
-                    <h3>
-                        Socials
-                    </h3>
-                    <h6>
-                        LinkedIn
-                    </h6>
-                    <h6>
-                        Twitter
-                    </h6>
-                    <h6>
-                        GitHub
-                    </h6>
+            <div className="d-flex footerContainer justify-content-around">
+                {/* Socials */}
+                <div className="d-flex flex-column pt-3 pb-3">
+                    <h3>Socials</h3>
+                    <div className="d-flex align-items-center mb-1">
+                        <FaLinkedin style={{ marginRight: '0.5rem' }} />
+                        <a
+                            href="https://linkedin.com/in/cory-versfeld-62937a283/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="iconLink"
+                        >
+                            LinkedIn
+                        </a>
+                    </div>
+
+                    <div className="d-flex align-items-center mb-1">
+                        <FaTwitter style={{ marginRight: '0.5rem' }} />
+                        <a
+                            href="https://twitter.com/zwcory"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="iconLink"
+                        >
+                            Twitter
+                        </a>
+                    </div>
+
+                    <div className="d-flex align-items-center mb-1">
+                        <FaGithub style={{ marginRight: '0.5rem' }} />
+                        <a
+                            href="https://github.com/yourprofile"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="iconLink"
+                        >
+                            GitHub
+                        </a>
+                    </div>
                 </div>
-                {/*Code*/}
-                <div className={'d-flex flex-column pt-3 pb-3'}>
-                    <h3>
-                        Code
-                    </h3>
-                    <h6>
-                    Docs
-                    </h6>
-                    <h6>
-                        Rand
-                    </h6>
+
+                {/* Code */}
+                <div className="d-flex flex-column pt-3 pb-3">
+                    <h3>Code</h3>
+                    <h6>Docs</h6>
                 </div>
-                {/*Resources (???)*/}
-                <div className={'d-flex flex-column pt-3 pb-3'}>
-                    <h3>
-                        Legal
-                    </h3>
-                    <h6>
-                        Resources
-                    </h6>
+
+                {/* Resources */}
+                <div className="d-flex flex-column pt-3 pb-3">
+                    <h3>Attributions</h3>
+                    <h6>Resources</h6>
                 </div>
-                {/* Spare */}
-                <div className={'d-flex flex-column pt-3 pb-3'}>
-                    <h3>
-                        Spare Head
-                    </h3>
-                    <h6>
-                        Spare 1
-                    </h6>
-                    <h6>
-                        Spare 2
-                    </h6>
+
+                {/* Spare / Copyright */}
+                <div className="d-flex flex-column pt-3 pb-3">
+                    <h3>Copyright</h3>
+                    <h6>© 2025 Cory Versfeld</h6>
                 </div>
-                </div>
+            </div>
         </>
-    )
+    );
 }
 
 export default Footer;
