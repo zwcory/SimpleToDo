@@ -108,7 +108,7 @@ function ToDo() {
                             >{item}</li>
                         ))}
 
-                        <li>
+                        <li className={`item align-content-lg-start`}>
 
                             <div className="d-flex justify-content-around">
                                 <div className="inputContainer">
@@ -118,50 +118,27 @@ function ToDo() {
                                            placeholder={'Enter Text'}
                                            value={inputText}
                                            onChange={handleChange}/>
-                                    {/*<label className="inputLabel">Your Name</label>*/}
                                 </div>
-                                {/*<input*/}
-                                {/*    type="text"*/}
-                                {/*    value={inputText}*/}
-                                {/*    onChange={handleChange}*/}
-                                {/*    className="form-control"*/}
-                                {/*    placeholder="Enter text"*/}
-                                {/*/>*/}
                                 <button
-                                    type="submit" className="btn btn-success">
-                                    {/*type="submit" className="myBtn greenBtn">*/}
-                                    {/*<img*/}
-                                    {/*    src={'/plus-svgrepo-com.svg'}*/}
-                                    {/*    className={'myBtnImage'}*/}
-                                    {/*    alt={'Add Item'}/>*/}
+                                    type="submit"
+                                    className={'myBtn greenBtn'}
+                                >
                                     ADD
                                 </button>
                             </div>
                         </li>
                     </ul>
                     <div className={'d-flex justify-content-around'}>
-                        <button className='btn btn-danger'
+                        <button
+                            className={'myBtn redBtn'}
                                 onClick={clearCrossedOutItems}
                         >
                             CLEAR
-                        {/*<button className={'myBtn redBtn'}*/}
-                        {/*        onClick={clearCrossedOutItems}*/}
-                        {/*>*/}
-                            {/*<img*/}
-                            {/*    src={'/broom-svgrepo-com.svg'}*/}
-                            {/*    className={'myBtnImage'}*/}
-                            {/*    alt={'Clear Crossed Items'}/>*/}
                         </button>
                         <button
-                            className={'btn btn-danger'}
+                            className={'myBtn redBtn'}
                             onClick={resetItems}>
                             RESET
-                            {/*className={'myBtn redBtn'}*/}
-                            {/*onClick={resetItems}>*/}
-                        {/*> <img*/}
-                        {/*    src={'/bin-svgrepo-com.svg'}*/}
-                        {/*    className={'myBtnImage'}*/}
-                        {/*    alt={'Clear Crossed Items'}/>*/}
                         </button>
                     </div>
                 </form>
