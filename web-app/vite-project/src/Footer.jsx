@@ -1,4 +1,4 @@
-import { FaLinkedin, FaTwitter, FaGithub } from 'react-icons/fa';
+import { FaLinkedin, FaTwitter, FaGithub, FaGitlab } from 'react-icons/fa';
 import './Footer.css';
 import './App.css';
 
@@ -10,7 +10,7 @@ function Footer() {
                 <div className="d-flex flex-column pt-3 pb-3">
                     <h3>Socials</h3>
                     <div className="d-flex align-items-center mb-1">
-                        <FaLinkedin style={{ marginRight: '0.5rem' }} />
+                        <FaLinkedin style={{marginRight: '0.5rem'}}/>
                         <a
                             href="https://linkedin.com/in/cory-versfeld-62937a283/"
                             target="_blank"
@@ -22,7 +22,7 @@ function Footer() {
                     </div>
 
                     <div className="d-flex align-items-center mb-1">
-                        <FaTwitter style={{ marginRight: '0.5rem' }} />
+                        <FaTwitter style={{marginRight: '0.5rem'}}/>
                         <a
                             href="https://twitter.com/zwcory"
                             target="_blank"
@@ -34,9 +34,9 @@ function Footer() {
                     </div>
 
                     <div className="d-flex align-items-center mb-1">
-                        <FaGithub style={{ marginRight: '0.5rem' }} />
+                        <FaGithub style={{marginRight: '0.5rem'}}/>
                         <a
-                            href="https://github.com/yourprofile"
+                            href="https://github.com/zwcory"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="iconLink"
@@ -44,7 +44,19 @@ function Footer() {
                             GitHub
                         </a>
                     </div>
+                    <div className="d-flex align-items-center mb-1">
+                        <FaGitlab style={{marginRight: '0.5rem'}}/>
+                        <a
+                            href="https://git.cardiff.ac.uk/c22042486/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="iconLink"
+                        >
+                            GitLab
+                        </a>
+                    </div>
                 </div>
+
 
                 {/* Code */}
                 <div className="d-flex flex-column pt-3 pb-3">
