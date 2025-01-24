@@ -1,6 +1,6 @@
 import { FaLinkedin, FaTwitter, FaGithub, FaGitlab } from 'react-icons/fa';
-import './Footer.css';
-import './App.css';
+import '../css/Footer.css';
+import '../css/App.css';
 
 function Footer() {
     return (
@@ -61,20 +61,33 @@ function Footer() {
                 {/* Code */}
                 <div className="d-flex flex-column pt-3 pb-3">
                     <h3>Code</h3>
-                    <h6>Docs</h6>
+                    <a
+                        href="https://github.com/zwcory/SimpleToDo"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="iconLink"
+                    >
+                        Docs
+                    </a>
                 </div>
 
                 {/* Resources */}
                 <div className="d-flex flex-column pt-3 pb-3">
                     <h3>Attributions</h3>
-                    <h6>Resources</h6>
+                    <a
+                        href="https://github.com/zwcory/SimpleToDo/wiki/Attributions"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="iconLink"
+                    >
+                        Resources
+                    </a>
                 </div>
 
                 {/* Copyright */}
                 <div className="d-flex flex-column pt-3 pb-3">
                     <h3>Copyright</h3>
                     <h6>© 2025 Cory Versfeld</h6>
-                    <h6>Test </h6>
                 </div>
             </div>
         </>

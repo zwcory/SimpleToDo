@@ -1,8 +1,8 @@
 import {useEffect, useState} from 'react'
-import './Footer.css'
-import './App.css'
+import '../css/Footer.css'
+import '../css/App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+// import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import Footer from "./Footer.jsx";
 function ToDo() {
     const [list,setList] = useState(
