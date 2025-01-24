@@ -74,7 +74,7 @@ function Footer() {
                 <div className="d-flex flex-column pt-3 pb-3">
                     <h3>Copyright</h3>
                     <h6>© 2025 Cory Versfeld</h6>
-                    <h6>Test</h6>
+                    <h6>Test </h6>
                 </div>
             </div>
         </>
