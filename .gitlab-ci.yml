@@ -1,41 +1,51 @@
 stages:
   - build
   - test
-  - integration
+  - deploy
 
 variables:
   NODE_ENV: development # Ensure both dependencies and devDependencies are installed
 
 cache:
   paths:
-    - web-app/client/node_modules/
+    - node_modules/
 
 # Build the React frontend
-build-frontend:
+build:
   stage: build
   image: node:20.12.2
-  tags:
-    - comsc-ci # Specify the runner tag
   script:
     - echo "Building React frontend..."
     - cd web-app/client
-    - npm ci
-    - npm run build
+    - npm ci # Install dependencies
+    - npm run build # Generate production build
   artifacts:
     paths:
       - web-app/client/dist
     expire_in: 1 week
 
-# Run tests
-test-frontend:
+# Run Tests
+test:
   stage: test
   image: node:20.12.2
-  tags:
-    - comsc-ci # Specify the runner tag
   script:
-    - echo "Running tests for React frontend..."
+    - echo "Running tests..."
     - cd web-app/client
-    - npm ci # Clean install all dependencies
-    - npm run test 
+    - npm ci # Install dependencies for tests
+    - npm run test
   dependencies:
-    - build-frontend # Ensure tests run after a successful build
+    - build # Ensure the build stage passes before running tests
+
+# Deploy to Vercel
+deploy:
+  stage: deploy
+  image: node:20.12.2
+  script:
+    - echo "Deploying React frontend to Vercel..."
+    - cd web-app/client
+    - npm install -g vercel
+    - npx vercel ./dist --prod --token=$VERCEL_TOKEN
+  dependencies:
+    - test # Ensure tests pass before deploying
+  only:
+    - main # Only deploy when changes are pushed to the main branch
