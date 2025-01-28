@@ -1,4 +1,5 @@
-# to-do-notes
+# simpletodo
+https://www.simpletodo.org
 
 ## The Idea
 I am building this a simple, user friendly todo list, with the following features: \
