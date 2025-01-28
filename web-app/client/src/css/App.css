@@ -115,3 +115,27 @@
 .modal-content{
   background-color: #fafafa;
 }
+
+/*fixes styling on iphone*/
+@supports (-webkit-touch-callout: none) {
+  button, input, textarea {
+    -webkit-tap-highlight-color: transparent !important;
+    outline: none !important;
+    box-shadow: none !important;
+  }
+}
+
+@supports (-webkit-touch-callout: none) {
+  input {
+    color: #000 !important; /* Always black text */
+    -webkit-text-fill-color: rgba(0, 0, 0, 0.85);
+  }
+}
+
+@supports (-webkit-touch-callout: none) {
+  input {
+    -webkit-appearance: none !important;
+    border-radius: 5px !important; /* Keep your styling */
+  }
+}
+
