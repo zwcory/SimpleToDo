@@ -1,4 +1,3 @@
-
 import { describe, it , beforeAll, beforeEach } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import ToDo from '../ToDo.jsx';
@@ -31,13 +30,13 @@ describe('ToDo Component', () => {
     });
 
     it('renders without crashing and shows the title', () => {
-        render(<ToDo />);
+        render(<ToDo/>);
         expect(screen.getByText(/Simple ToDo/i)).toBeInTheDocument();
         expect(screen.getByText('Here is your list')).toBeInTheDocument();
     });
 
     it('initially shows an empty list', () => {
-        render(<ToDo />);
+        render(<ToDo/>);
         // By default, no list items other than the input should be present
         const listItems = screen.queryAllByRole('listitem');
         // There's one <li> containing the input field
@@ -45,11 +44,11 @@ describe('ToDo Component', () => {
     });
 
     it('adds a new item to the list', () => {
-        render(<ToDo />);
+        render(<ToDo/>);
         const input = screen.getByPlaceholderText(/Enter Text/i);
-        const addButton = screen.getByRole('button', { name: /ADD/i });
+        const addButton = screen.getByRole('button', {name: /ADD/i});
 
-        fireEvent.change(input, { target: { value: 'Test Item' } });
+        fireEvent.change(input, {target: {value: 'Test Item'}});
         fireEvent.click(addButton);
 
         // The item should appear in the list
@@ -57,12 +56,12 @@ describe('ToDo Component', () => {
     });
 
     it('strikes an item when clicked and toggles strike state', () => {
-        render(<ToDo />);
+        render(<ToDo/>);
         const input = screen.getByPlaceholderText(/Enter Text/i);
-        const addButton = screen.getByRole('button', { name: /ADD/i });
+        const addButton = screen.getByRole('button', {name: /ADD/i});
 
         // Add an item
-        fireEvent.change(input, { target: { value: 'Strike Item' } });
+        fireEvent.change(input, {target: {value: 'Strike Item'}});
         fireEvent.click(addButton);
 
         const listItem = screen.getByText('Strike Item');
@@ -76,14 +75,14 @@ describe('ToDo Component', () => {
     });
 
     it('clears crossed-out items when "CLEAR" is clicked', () => {
-        render(<ToDo />);
+        render(<ToDo/>);
         const input = screen.getByPlaceholderText(/Enter Text/i);
-        const addButton = screen.getByRole('button', { name: /ADD/i });
+        const addButton = screen.getByRole('button', {name: /ADD/i});
 
         // Add two items
-        fireEvent.change(input, { target: { value: 'Item 1' } });
+        fireEvent.change(input, {target: {value: 'Item 1'}});
         fireEvent.click(addButton);
-        fireEvent.change(input, { target: { value: 'Item 2' } });
+        fireEvent.change(input, {target: {value: 'Item 2'}});
         fireEvent.click(addButton);
 
         // Strike one item
@@ -92,7 +91,7 @@ describe('ToDo Component', () => {
         expect(item1).toHaveClass('text-decoration-line-through');
 
         // Click clear
-        const clearButton = screen.getByRole('button', { name: /CLEAR/i });
+        const clearButton = screen.getByRole('button', {name: /CLEAR/i});
         fireEvent.click(clearButton);
 
         // The struck item should be removed, the unstruck item remains
@@ -101,36 +100,46 @@ describe('ToDo Component', () => {
     });
 
     it('opens the reset modal and closes it on cancel', () => {
-        render(<ToDo />);
-        const resetButton = screen.getByRole('button', { name: /RESET/i });
+        render(<ToDo/>);
+        const input = screen.getByPlaceholderText(/Enter Text/i);
+        const addButton = screen.getByRole('button', {name: /ADD/i});
+
+        // Add one item so the list is not empty
+        fireEvent.change(input, {target: {value: 'Item 1'}});
+        fireEvent.click(addButton);
+        const resetButton = screen.getByRole('button', {name: /RESET/i});
         fireEvent.click(resetButton);
 
         // Modal should appear
         expect(screen.getByText(/Confirm Reset\?/i)).toBeInTheDocument();
 
         // Cancel the reset
-        const cancelButton = screen.getByRole('button', { name: /Cancel/i });
+        const cancelButton = screen.getByRole('button', {name: /Cancel/i});
         fireEvent.click(cancelButton);
 
         // Modal should disappear
         expect(screen.queryByText(/Confirm Reset\?/i)).not.toBeInTheDocument();
     });
 
-    it('resets the list when "Confirm" is clicked in the modal', () => {
+    it('resets the list when "Confirm" is clicked in the modal', async () => {
         // Pre-populate localStorage with items
         window.localStorage.setItem('List', JSON.stringify(['Item 1', 'Item 2']));
         window.localStorage.setItem('Strike', JSON.stringify([false, true]));
 
-        render(<ToDo />);
+        render(<ToDo/>);
 
-        // We expect existing items to load from localStorage
+        // Expect existing items to load from localStorage
         expect(screen.getByText('Item 1')).toBeInTheDocument();
         expect(screen.getByText('Item 2')).toBeInTheDocument();
 
-        // Click reset button
+        // Click reset button to open the modal
         fireEvent.click(screen.getByText(/RESET/i));
+
+        // Wait for the modal to appear
+        const confirmButton = await screen.findByRole('button', {name: /Confirm/i});
+
         // Confirm in modal
-        fireEvent.click(screen.getByText(/Confirm/i));
+        fireEvent.click(confirmButton);
 
         // Items should be gone
         expect(screen.queryByText('Item 1')).not.toBeInTheDocument();
