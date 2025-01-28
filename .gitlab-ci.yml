@@ -35,7 +35,7 @@ test-frontend:
   script:
     - echo "Running tests for React frontend..."
     - cd web-app/client
-    - npm ci # Clean install all dependencies, including devDependencies
-    - npm run test -- --run --ci # Run Vitest tests in CI mode
+    - npm ci # Clean install all dependencies
+    - npm run test 
   dependencies:
     - build-frontend # Ensure tests run after a successful build
