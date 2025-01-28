@@ -8,7 +8,7 @@ variables:
 
 cache:
   paths:
-    - node_modules/
+    - web-app/client/node_modules/
 
 # Build the React frontend
 build:
@@ -17,12 +17,12 @@ build:
   script:
     - echo "Building React frontend..."
     - cd web-app/client
-    - npm ci # Install dependencies
+    - npm ci # Clean install dependencies
     - npm run build # Generate production build
   artifacts:
     paths:
-      - web-app/client/dist
-    expire_in: 1 week
+      - web-app/client/dist # Save the dist folder
+    expire_in: 1 week # Artifacts will be available for a week
 
 # Run Tests
 test:
@@ -31,10 +31,10 @@ test:
   script:
     - echo "Running tests..."
     - cd web-app/client
-    - npm ci # Install dependencies for tests
+    - npm ci # Clean install dependencies for tests
     - npm run test
   dependencies:
-    - build # Ensure the build stage passes before running tests
+    - build # Ensure the test stage uses the dist folder from the build stage
 
 # Deploy to Vercel
 deploy:
@@ -43,9 +43,10 @@ deploy:
   script:
     - echo "Deploying React frontend to Vercel..."
     - cd web-app/client
-    - npm install -g vercel
-    - npx vercel ./dist --prod --token=$VERCEL_TOKEN
+    - ls -l dist # Debug: Ensure the dist folder exists
+    - npm install -g vercel # Install Vercel CLI globally
+    - npx vercel ./dist --prod --token=$VERCEL_TOKEN # Deploy the dist folder
   dependencies:
-    - test # Ensure tests pass before deploying
+    - build # Ensure deploy has access to the dist folder from the build stage
   only:
-    - main # Only deploy when changes are pushed to the main branch
+    - main # Only deploy from the main branch
