@@ -1,8 +1,8 @@
 import {useEffect, useState} from 'react'
-import './Footer.css'
-import './App.css'
+import '../css/Footer.css'
+import '../css/App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+// import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import Footer from "./Footer.jsx";
 function ToDo() {
     const [list,setList] = useState(
@@ -170,10 +170,10 @@ function ToDo() {
                                 <p style={{paddingTop:'1rem'}}>Are you sure you want to reset your list?</p>
                             </div>
                             <div className="modal-footer">
-                                <button className="myBtn greyBtn" onClick={() => setShowModal(false)}>
+                                <button type={'button'} className="myBtn greyBtn" onClick={() => setShowModal(false)}>
                                     Cancel
                                 </button>
-                                <button className="myBtn redBtn" onClick={resetItems}>
+                                <button  type={'button'}  className="myBtn redBtn" onClick={resetItems}>
                                     Confirm
                                 </button>
                             </div>
