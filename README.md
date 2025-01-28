@@ -16,7 +16,8 @@ In the future I will be looking to implement more features, including: \
     - Dark Mode \
     - + Any suggestions 
 
-## Open Source
-Feel free to use the exisiting code base as much as you would like, completely free 
+
+## License
+This project is licensed under the **MIT License** – see the [LICENSE](./LICENSE) file for details. 
 
 
