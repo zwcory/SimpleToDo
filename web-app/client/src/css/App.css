@@ -140,6 +140,11 @@
   }
   input::placeholder {
     color: #757575 !important; /* Light gray for dark mode */
+    -webkit-text-fill-color: #757575 !important;
+  }
+  input::-webkit-input-placeholder {
+    color: #757575 !important; /* Light gray for dark mode */
+    -webkit-text-fill-color: #757575 !important;
   }
 }
 
