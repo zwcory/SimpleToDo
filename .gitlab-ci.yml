@@ -45,7 +45,7 @@ deploy:
     - cd web-app/client
     - ls -l dist # Debug: Ensure the dist folder exists
     - npm install -g vercel # Install Vercel CLI globally
-    - npx vercel ./dist --prod --token=$VERCEL_TOKEN # Deploy the dist folder
+    - npx vercel ./dist --prod --token=$VERCEL_TOKEN --yes # Deploy the dist folder
   dependencies:
     - build # Ensure deploy has access to the dist folder from the build stage
   only:
