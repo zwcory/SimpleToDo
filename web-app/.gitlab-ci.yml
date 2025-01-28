@@ -1,0 +1,45 @@
+stages:
+  - test
+  - build
+  - integration
+
+variables:
+  NODE_ENV: production
+
+cache:
+  paths:
+    - node_modules/
+
+# Test
+test-frontend:
+  stage: test
+  image: node:20.12.2
+  variables:
+    CI: false # Ignore warnings during the build
+  tags:
+    - comsc-ci # Specify the runner tag
+  script:
+    - echo "Building React frontend..."
+    - cd web-app/client
+    - npm ci
+    - npm run test
+
+
+# Build the React frontend
+build-frontend:
+  stage: build
+  image: node:20.12.2
+  variables:
+    CI: false # Ignore warnings during the build
+  tags:
+    - comsc-ci # Specify the runner tag
+  script:
+    - echo "Building React frontend..."
+    - cd web-app/client
+    - npm ci
+    - npm run build
+  artifacts:
+    paths:
+      - web-app/client/build
+    expire_in: 1 week
+
