@@ -7,9 +7,9 @@ variables:
   NODE_ENV: production
 
 cache:
+  key: ${CI_COMMIT_REF_SLUG} # Cache key based on branch name
   paths:
-    - node_modules/
-
+    - web-app/client/node_modules/ # Cache specific to the client directory
 
 # Build the React frontend
 build-frontend:
@@ -22,14 +22,14 @@ build-frontend:
   script:
     - echo "Building React frontend..."
     - cd web-app/client
-    - npm ci
+    - npm ci # Clean install dependencies
     - npm run build
   artifacts:
     paths:
       - web-app/client/build
     expire_in: 1 week
 
-# Test
+# Test the React frontend
 test-frontend:
   stage: test
   image: node:20.12.2
@@ -38,8 +38,9 @@ test-frontend:
   tags:
     - comsc-ci # Specify the runner tag
   script:
-    - echo "Building React frontend..."
+    - echo "Running tests for React frontend..."
     - cd web-app/client
-    - npm ci
-    - npm run test
-
+    - npm ci # Clean install dependencies
+    - npm run test # Run the test suite
+  dependencies:
+    - build-frontend # Ensure tests depend on the build job
