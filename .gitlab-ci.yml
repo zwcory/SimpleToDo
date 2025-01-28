@@ -4,43 +4,38 @@ stages:
   - integration
 
 variables:
-  NODE_ENV: production
+  NODE_ENV: development # Ensure both dependencies and devDependencies are installed
 
 cache:
-  key: ${CI_COMMIT_REF_SLUG} # Cache key based on branch name
   paths:
-    - web-app/client/node_modules/ # Cache specific to the client directory
+    - web-app/client/node_modules/
 
 # Build the React frontend
 build-frontend:
   stage: build
   image: node:20.12.2
-  variables:
-    CI: false # Ignore warnings during the build
   tags:
     - comsc-ci # Specify the runner tag
   script:
     - echo "Building React frontend..."
     - cd web-app/client
-    - npm ci # Clean install dependencies
+    - npm ci
     - npm run build
   artifacts:
     paths:
-      - web-app/client/build
+      - web-app/client/dist
     expire_in: 1 week
 
-# Test the React frontend
+# Run tests
 test-frontend:
   stage: test
   image: node:20.12.2
-  variables:
-    CI: false # Ignore warnings during the build
   tags:
     - comsc-ci # Specify the runner tag
   script:
     - echo "Running tests for React frontend..."
     - cd web-app/client
-    - npm ci # Clean install dependencies
-    - npm run test # Run the test suite
+    - npm ci # Clean install all dependencies, including devDependencies
+    - npm run test -- --run --ci # Run Vitest tests in CI mode
   dependencies:
-    - build-frontend # Ensure tests depend on the build job
+    - build-frontend # Ensure tests run after a successful build
