@@ -19,3 +19,37 @@
     color: #e8e8e8;
 }
 
+
+.footerContainer {
+    background-color: rgb(170, 170, 170);
+    color: #e8e8e8;
+    display: flex;
+    justify-content: space-around; /* Distribute columns evenly */
+    align-items: flex-start; /* Align content to the top */
+    gap: 3rem; /* Spacing between columns */
+    padding: 1.5rem;
+    flex-wrap: wrap;
+}
+
+/* Ensure each section gets equal space */
+.footerContainer .d-flex {
+    flex: 1;
+    text-align: center;
+}
+
+/* On smaller screens, switch to 2 columns */
+@media (max-width: 768px) {
+    .footerContainer {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Two columns */
+        gap: 2rem;
+        text-align: center;
+    }
+}
+
+/* On very small screens, stack everything in one column */
+@media (max-width: 500px) {
+    .footerContainer {
+        grid-template-columns: 1fr; /* Single column */
+    }
+}
