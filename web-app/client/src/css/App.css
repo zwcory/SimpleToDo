@@ -136,13 +136,12 @@
   input {
     -webkit-appearance: none !important;
     border-radius: 5px !important; /* Keep your styling */
+    padding-left: 0px !important;
   }
-}
-
-@media (prefers-color-scheme: dark) {
   input::placeholder {
     color: #757575 !important; /* Light gray for dark mode */
   }
 }
+
 
 
