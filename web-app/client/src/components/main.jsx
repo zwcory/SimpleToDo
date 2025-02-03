@@ -7,8 +7,8 @@ import ToDo from "./ToDo.jsx";
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <ToDo/>
       <Analytics/>
       <SpeedInsights/>
+    <ToDo/>
   </StrictMode>,
 )

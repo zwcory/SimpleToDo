@@ -106,7 +106,7 @@ function ToDo() {
                 <div className={'d-flex justify-content-center'}>
                 <div className={'myCard d-flex align-self-center flex-column' }>
             <div>
-               <h3 id={'header'}>Here is your new list</h3>
+               <h3 id={'header'}>Here is your list</h3>
             </div>
             <div>
                 <form onSubmit={handleSubmit}>
